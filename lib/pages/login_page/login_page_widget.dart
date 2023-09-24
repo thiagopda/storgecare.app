@@ -73,14 +73,16 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                     decoration: BoxDecoration(
                       image: DecorationImage(
                         fit: BoxFit.fitWidth,
-                        alignment: AlignmentDirectional(1.00, 1.00),
+                        alignment: AlignmentDirectional(0.00, 1.00),
                         image: Image.asset(
                           Theme.of(context).brightness == Brightness.dark
                               ? 'assets/images/Group_12.png'
                               : 'assets/images/Group_12.png',
                         ).image,
                       ),
+                      shape: BoxShape.rectangle,
                     ),
+                    alignment: AlignmentDirectional(0.00, 1.00),
                     child: Padding(
                       padding:
                           EdgeInsetsDirectional.fromSTEB(0.0, 70.0, 0.0, 0.0),

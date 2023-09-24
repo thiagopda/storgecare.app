@@ -242,7 +242,7 @@ class _AppointmentDetailsWidgetState extends State<AppointmentDetailsWidget> {
                                         shape: BoxShape.circle,
                                       ),
                                       child: Image.asset(
-                                        'assets/images/UI_avatar_2@3x.png',
+                                        'assets/images/profile-pro.jpeg',
                                       ),
                                     ),
                                   ),

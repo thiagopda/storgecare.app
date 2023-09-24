@@ -412,7 +412,7 @@ class _CompleteProfileWidgetState extends State<CompleteProfileWidget>
                             shape: BoxShape.circle,
                           ),
                           child: Image.asset(
-                            'assets/images/uiAvatar@2x.png',
+                            'assets/images/2vqf7_',
                           ),
                         ),
                       ).animateOnPageLoad(

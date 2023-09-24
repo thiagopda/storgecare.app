@@ -102,7 +102,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                 shape: BoxShape.circle,
                               ),
                               child: Image.asset(
-                                'assets/images/UI_avatar_2@3x.png',
+                                'assets/images/profile-pro.jpeg',
                               ),
                             ),
                           ),

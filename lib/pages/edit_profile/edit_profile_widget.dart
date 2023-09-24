@@ -123,11 +123,10 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                         decoration: BoxDecoration(
                           shape: BoxShape.circle,
                         ),
-                        child: Image.network(
-                          valueOrDefault<String>(
-                            editProfileUsersRecord.photoUrl,
-                            'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/health-ai-mj6puy/assets/hu4vs0lstizz/UI_avatar_2@3x.png',
-                          ),
+                        child: Image.asset(
+                          'assets/images/profile-pro.jpeg',
+                          fit: BoxFit.fill,
+                          alignment: Alignment(0.00, 0.00),
                         ),
                       ),
                     ),
