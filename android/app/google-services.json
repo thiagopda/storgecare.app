@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "34857238265",
+    "project_id": "storgecare-bl9g",
+    "storage_bucket": "storgecare-bl9g.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:34857238265:android:0050732ada702c26576c28",
+        "android_client_info": {
+          "package_name": "storgecare.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDH6VfM0bKN7PDUEdcqc9O8caQpF6WxnXs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
