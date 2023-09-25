@@ -159,8 +159,15 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                     labelPadding:
                                         EdgeInsetsDirectional.fromSTEB(
                                             24.0, 0.0, 24.0, 0.0),
-                                    labelStyle:
-                                        FlutterFlowTheme.of(context).titleSmall,
+                                    labelStyle: FlutterFlowTheme.of(context)
+                                        .titleSmall
+                                        .override(
+                                          fontFamily: 'Inter',
+                                          useGoogleFonts: GoogleFonts.asMap()
+                                              .containsKey(
+                                                  FlutterFlowTheme.of(context)
+                                                      .titleSmallFamily),
+                                        ),
                                     unselectedLabelStyle: TextStyle(),
                                     indicatorColor:
                                         FlutterFlowTheme.of(context).tertiary,
@@ -599,7 +606,16 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                   ),
                                                   style: FlutterFlowTheme.of(
                                                           context)
-                                                      .bodyMedium,
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Inter',
+                                                        useGoogleFonts: GoogleFonts
+                                                                .asMap()
+                                                            .containsKey(
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMediumFamily),
+                                                      ),
                                                   validator: _model
                                                       .emailAddressControllerValidator
                                                       .asValidator(context),
@@ -705,7 +721,16 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                   ),
                                                   style: FlutterFlowTheme.of(
                                                           context)
-                                                      .bodyMedium,
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Inter',
+                                                        useGoogleFonts: GoogleFonts
+                                                                .asMap()
+                                                            .containsKey(
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMediumFamily),
+                                                      ),
                                                   validator: _model
                                                       .passwordCreateControllerValidator
                                                       .asValidator(context),
@@ -812,7 +837,16 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                   ),
                                                   style: FlutterFlowTheme.of(
                                                           context)
-                                                      .bodyMedium,
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Inter',
+                                                        useGoogleFonts: GoogleFonts
+                                                                .asMap()
+                                                            .containsKey(
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMediumFamily),
+                                                      ),
                                                   validator: _model
                                                       .passwordConfirmControllerValidator
                                                       .asValidator(context),
@@ -860,25 +894,21 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                     color: FlutterFlowTheme.of(
                                                             context)
                                                         .primary,
-                                                    textStyle:
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .titleSmall
-                                                            .override(
-                                                              fontFamily:
+                                                    textStyle: FlutterFlowTheme
+                                                            .of(context)
+                                                        .titleSmall
+                                                        .override(
+                                                          fontFamily: 'Inter',
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .textColor,
+                                                          useGoogleFonts: GoogleFonts
+                                                                  .asMap()
+                                                              .containsKey(
                                                                   FlutterFlowTheme.of(
                                                                           context)
-                                                                      .titleSmallFamily,
-                                                              color: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .textColor,
-                                                              useGoogleFonts: GoogleFonts
-                                                                      .asMap()
-                                                                  .containsKey(
-                                                                      FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .titleSmallFamily),
-                                                            ),
+                                                                      .titleSmallFamily),
+                                                        ),
                                                     elevation: 3.0,
                                                     borderSide: BorderSide(
                                                       color: Colors.transparent,

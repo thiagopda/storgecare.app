@@ -120,7 +120,16 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                                             'Mantenha Contato',
                                             textAlign: TextAlign.center,
                                             style: FlutterFlowTheme.of(context)
-                                                .displaySmall,
+                                                .displaySmall
+                                                .override(
+                                                  fontFamily: 'Inter',
+                                                  useGoogleFonts: GoogleFonts
+                                                          .asMap()
+                                                      .containsKey(
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .displaySmallFamily),
+                                                ),
                                           ),
                                         ),
                                       ],
@@ -137,7 +146,16 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                                             'Tenha sempre seu consultório médico ao seu alcance.',
                                             textAlign: TextAlign.center,
                                             style: FlutterFlowTheme.of(context)
-                                                .titleMedium,
+                                                .titleMedium
+                                                .override(
+                                                  fontFamily: 'Inter',
+                                                  useGoogleFonts: GoogleFonts
+                                                          .asMap()
+                                                      .containsKey(
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .titleMediumFamily),
+                                                ),
                                           ),
                                         ),
                                       ],
@@ -332,8 +350,7 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                       textStyle: FlutterFlowTheme.of(context)
                           .titleSmall
                           .override(
-                            fontFamily:
-                                FlutterFlowTheme.of(context).titleSmallFamily,
+                            fontFamily: 'Inter',
                             color: FlutterFlowTheme.of(context).primaryText,
                             useGoogleFonts: GoogleFonts.asMap().containsKey(
                                 FlutterFlowTheme.of(context).titleSmallFamily),

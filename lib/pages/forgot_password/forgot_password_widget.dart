@@ -61,7 +61,11 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget> {
         ),
         title: Text(
           'Esqueci a senha',
-          style: FlutterFlowTheme.of(context).headlineSmall,
+          style: FlutterFlowTheme.of(context).headlineSmall.override(
+                fontFamily: 'Inter',
+                useGoogleFonts: GoogleFonts.asMap().containsKey(
+                    FlutterFlowTheme.of(context).headlineSmallFamily),
+              ),
         ),
         actions: [],
         centerTitle: false,
@@ -89,7 +93,11 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget> {
                   Expanded(
                     child: Text(
                       'Digite o e-mail associado à sua conta e lhe enviaremos um código de verificação.',
-                      style: FlutterFlowTheme.of(context).bodySmall,
+                      style: FlutterFlowTheme.of(context).bodySmall.override(
+                            fontFamily: 'Inter',
+                            useGoogleFonts: GoogleFonts.asMap().containsKey(
+                                FlutterFlowTheme.of(context).bodySmallFamily),
+                          ),
                     ),
                   ),
                 ],
@@ -138,7 +146,11 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget> {
                   contentPadding:
                       EdgeInsetsDirectional.fromSTEB(20.0, 24.0, 20.0, 24.0),
                 ),
-                style: FlutterFlowTheme.of(context).bodyMedium,
+                style: FlutterFlowTheme.of(context).bodyMedium.override(
+                      fontFamily: 'Inter',
+                      useGoogleFonts: GoogleFonts.asMap().containsKey(
+                          FlutterFlowTheme.of(context).bodyMediumFamily),
+                    ),
                 validator:
                     _model.emailAddressControllerValidator.asValidator(context),
               ),
@@ -171,8 +183,7 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget> {
                       EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                   color: FlutterFlowTheme.of(context).primary,
                   textStyle: FlutterFlowTheme.of(context).titleSmall.override(
-                        fontFamily:
-                            FlutterFlowTheme.of(context).titleSmallFamily,
+                        fontFamily: 'Inter',
                         color: FlutterFlowTheme.of(context).textColor,
                         useGoogleFonts: GoogleFonts.asMap().containsKey(
                             FlutterFlowTheme.of(context).titleSmallFamily),

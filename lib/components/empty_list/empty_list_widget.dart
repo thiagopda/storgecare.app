@@ -60,7 +60,11 @@ class _EmptyListWidgetState extends State<EmptyListWidget> {
               Text(
                 'Sem agendamentos!',
                 textAlign: TextAlign.center,
-                style: FlutterFlowTheme.of(context).headlineSmall,
+                style: FlutterFlowTheme.of(context).headlineSmall.override(
+                      fontFamily: 'Inter',
+                      useGoogleFonts: GoogleFonts.asMap().containsKey(
+                          FlutterFlowTheme.of(context).headlineSmallFamily),
+                    ),
               ),
             ],
           ),
@@ -75,7 +79,11 @@ class _EmptyListWidgetState extends State<EmptyListWidget> {
                 child: Text(
                   'Não há compromissos agendados, precisa de agendamento? Agende um agora.',
                   textAlign: TextAlign.center,
-                  style: FlutterFlowTheme.of(context).bodySmall,
+                  style: FlutterFlowTheme.of(context).bodySmall.override(
+                        fontFamily: 'Inter',
+                        useGoogleFonts: GoogleFonts.asMap().containsKey(
+                            FlutterFlowTheme.of(context).bodySmallFamily),
+                      ),
                 ),
               ),
             ],
@@ -109,7 +117,7 @@ class _EmptyListWidgetState extends State<EmptyListWidget> {
               iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
               color: FlutterFlowTheme.of(context).primary,
               textStyle: FlutterFlowTheme.of(context).titleSmall.override(
-                    fontFamily: 'Lexend Deca',
+                    fontFamily: 'Inter',
                     color: Colors.white,
                     fontSize: 16.0,
                     fontWeight: FontWeight.normal,

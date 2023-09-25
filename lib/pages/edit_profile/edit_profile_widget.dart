@@ -93,7 +93,11 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
             ),
             title: Text(
               'Editar Perfil',
-              style: FlutterFlowTheme.of(context).headlineSmall,
+              style: FlutterFlowTheme.of(context).headlineSmall.override(
+                    fontFamily: 'Inter',
+                    useGoogleFonts: GoogleFonts.asMap().containsKey(
+                        FlutterFlowTheme.of(context).headlineSmallFamily),
+                  ),
             ),
             actions: [],
             centerTitle: false,
@@ -114,19 +118,35 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                       height: 90.0,
                       decoration: BoxDecoration(
                         color: FlutterFlowTheme.of(context).darkBackground,
+                        image: DecorationImage(
+                          fit: BoxFit.cover,
+                          image: Image.asset(
+                            'assets/images/userprofile.png',
+                          ).image,
+                        ),
+                        boxShadow: [
+                          BoxShadow(
+                            blurRadius: 16.0,
+                            color: Color(0x621A1F24),
+                            offset: Offset(0.0, 6.0),
+                            spreadRadius: 0.0,
+                          )
+                        ],
                         shape: BoxShape.circle,
                       ),
-                      child: Container(
-                        width: 80.0,
-                        height: 80.0,
-                        clipBehavior: Clip.antiAlias,
-                        decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                        ),
-                        child: Image.asset(
-                          'assets/images/profile-pro.jpeg',
-                          fit: BoxFit.fill,
-                          alignment: Alignment(0.00, 0.00),
+                      child: AuthUserStreamWidget(
+                        builder: (context) => Container(
+                          width: 80.0,
+                          height: 80.0,
+                          clipBehavior: Clip.antiAlias,
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                          ),
+                          child: Image.network(
+                            currentUserPhoto,
+                            fit: BoxFit.cover,
+                            alignment: Alignment(0.00, 0.00),
+                          ),
                         ),
                       ),
                     ),
@@ -202,7 +222,14 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                           iconPadding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 0.0, 0.0),
                           color: FlutterFlowTheme.of(context).primaryBackground,
-                          textStyle: FlutterFlowTheme.of(context).bodyMedium,
+                          textStyle: FlutterFlowTheme.of(context)
+                              .bodyMedium
+                              .override(
+                                fontFamily: 'Inter',
+                                useGoogleFonts: GoogleFonts.asMap().containsKey(
+                                    FlutterFlowTheme.of(context)
+                                        .bodyMediumFamily),
+                              ),
                           elevation: 2.0,
                           borderSide: BorderSide(
                             color: Colors.transparent,
@@ -260,7 +287,12 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                           contentPadding: EdgeInsetsDirectional.fromSTEB(
                               20.0, 24.0, 20.0, 24.0),
                         ),
-                        style: FlutterFlowTheme.of(context).bodyMedium,
+                        style: FlutterFlowTheme.of(context).bodyMedium.override(
+                              fontFamily: 'Inter',
+                              useGoogleFonts: GoogleFonts.asMap().containsKey(
+                                  FlutterFlowTheme.of(context)
+                                      .bodyMediumFamily),
+                            ),
                         validator: _model.yourNameControllerValidator
                             .asValidator(context),
                       ),
@@ -310,7 +342,12 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                           contentPadding: EdgeInsetsDirectional.fromSTEB(
                               20.0, 24.0, 20.0, 24.0),
                         ),
-                        style: FlutterFlowTheme.of(context).bodyMedium,
+                        style: FlutterFlowTheme.of(context).bodyMedium.override(
+                              fontFamily: 'Inter',
+                              useGoogleFonts: GoogleFonts.asMap().containsKey(
+                                  FlutterFlowTheme.of(context)
+                                      .bodyMediumFamily),
+                            ),
                         keyboardType: TextInputType.emailAddress,
                         validator: _model.yourEmailControllerValidator
                             .asValidator(context),
@@ -364,7 +401,12 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                           contentPadding: EdgeInsetsDirectional.fromSTEB(
                               20.0, 24.0, 20.0, 24.0),
                         ),
-                        style: FlutterFlowTheme.of(context).bodyMedium,
+                        style: FlutterFlowTheme.of(context).bodyMedium.override(
+                              fontFamily: 'Inter',
+                              useGoogleFonts: GoogleFonts.asMap().containsKey(
+                                  FlutterFlowTheme.of(context)
+                                      .bodyMediumFamily),
+                            ),
                         keyboardType: TextInputType.number,
                         validator: _model.yourAgeControllerValidator
                             .asValidator(context),
@@ -418,7 +460,12 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                           contentPadding: EdgeInsetsDirectional.fromSTEB(
                               20.0, 24.0, 20.0, 24.0),
                         ),
-                        style: FlutterFlowTheme.of(context).bodyMedium,
+                        style: FlutterFlowTheme.of(context).bodyMedium.override(
+                              fontFamily: 'Inter',
+                              useGoogleFonts: GoogleFonts.asMap().containsKey(
+                                  FlutterFlowTheme.of(context)
+                                      .bodyMediumFamily),
+                            ),
                         maxLines: 3,
                         validator: _model.yourAilmentsControllerValidator
                             .asValidator(context),
@@ -432,7 +479,14 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                         children: [
                           Text(
                             'Seu sexo de nascimento',
-                            style: FlutterFlowTheme.of(context).bodySmall,
+                            style: FlutterFlowTheme.of(context)
+                                .bodySmall
+                                .override(
+                                  fontFamily: 'Inter',
+                                  useGoogleFonts: GoogleFonts.asMap()
+                                      .containsKey(FlutterFlowTheme.of(context)
+                                          .bodySmallFamily),
+                                ),
                           ),
                         ],
                       ),
@@ -452,8 +506,14 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                                     editProfileUsersRecord.userSex),
                             optionHeight: 25.0,
                             textStyle: FlutterFlowTheme.of(context).bodySmall,
-                            selectedTextStyle:
-                                FlutterFlowTheme.of(context).bodyMedium,
+                            selectedTextStyle: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'Inter',
+                                  useGoogleFonts: GoogleFonts.asMap()
+                                      .containsKey(FlutterFlowTheme.of(context)
+                                          .bodyMediumFamily),
+                                ),
                             textPadding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 0.0, 12.0, 0.0),
                             buttonPosition: RadioButtonPosition.left,
@@ -493,7 +553,14 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                           iconPadding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 0.0, 0.0),
                           color: FlutterFlowTheme.of(context).primary,
-                          textStyle: FlutterFlowTheme.of(context).titleSmall,
+                          textStyle: FlutterFlowTheme.of(context)
+                              .titleSmall
+                              .override(
+                                fontFamily: 'Inter',
+                                useGoogleFonts: GoogleFonts.asMap().containsKey(
+                                    FlutterFlowTheme.of(context)
+                                        .titleSmallFamily),
+                              ),
                           elevation: 3.0,
                           borderSide: BorderSide(
                             color: Colors.transparent,

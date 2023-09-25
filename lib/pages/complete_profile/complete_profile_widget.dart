@@ -319,7 +319,11 @@ class _CompleteProfileWidgetState extends State<CompleteProfileWidget>
           ),
           title: Text(
             'Perfil  completo',
-            style: FlutterFlowTheme.of(context).headlineSmall,
+            style: FlutterFlowTheme.of(context).headlineSmall.override(
+                  fontFamily: 'Inter',
+                  useGoogleFonts: GoogleFonts.asMap().containsKey(
+                      FlutterFlowTheme.of(context).headlineSmallFamily),
+                ),
           ),
           actions: [],
           centerTitle: false,
@@ -349,79 +353,93 @@ class _CompleteProfileWidgetState extends State<CompleteProfileWidget>
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
                     children: [
-                      InkWell(
-                        splashColor: Colors.transparent,
-                        focusColor: Colors.transparent,
-                        hoverColor: Colors.transparent,
-                        highlightColor: Colors.transparent,
-                        onTap: () async {
-                          final selectedMedia =
-                              await selectMediaWithSourceBottomSheet(
-                            context: context,
-                            allowPhoto: true,
-                          );
-                          if (selectedMedia != null &&
-                              selectedMedia.every((m) =>
-                                  validateFileFormat(m.storagePath, context))) {
-                            setState(() => _model.isDataUploading = true);
-                            var selectedUploadedFiles = <FFUploadedFile>[];
+                      AuthUserStreamWidget(
+                        builder: (context) => InkWell(
+                          splashColor: Colors.transparent,
+                          focusColor: Colors.transparent,
+                          hoverColor: Colors.transparent,
+                          highlightColor: Colors.transparent,
+                          onTap: () async {
+                            final selectedMedia =
+                                await selectMediaWithSourceBottomSheet(
+                              context: context,
+                              allowPhoto: true,
+                            );
+                            if (selectedMedia != null &&
+                                selectedMedia.every((m) => validateFileFormat(
+                                    m.storagePath, context))) {
+                              setState(() => _model.isDataUploading = true);
+                              var selectedUploadedFiles = <FFUploadedFile>[];
 
-                            var downloadUrls = <String>[];
-                            try {
-                              selectedUploadedFiles = selectedMedia
-                                  .map((m) => FFUploadedFile(
-                                        name: m.storagePath.split('/').last,
-                                        bytes: m.bytes,
-                                        height: m.dimensions?.height,
-                                        width: m.dimensions?.width,
-                                        blurHash: m.blurHash,
-                                      ))
-                                  .toList();
+                              var downloadUrls = <String>[];
+                              try {
+                                selectedUploadedFiles = selectedMedia
+                                    .map((m) => FFUploadedFile(
+                                          name: m.storagePath.split('/').last,
+                                          bytes: m.bytes,
+                                          height: m.dimensions?.height,
+                                          width: m.dimensions?.width,
+                                          blurHash: m.blurHash,
+                                        ))
+                                    .toList();
 
-                              downloadUrls = (await Future.wait(
-                                selectedMedia.map(
-                                  (m) async =>
-                                      await uploadData(m.storagePath, m.bytes),
-                                ),
-                              ))
-                                  .where((u) => u != null)
-                                  .map((u) => u!)
-                                  .toList();
-                            } finally {
-                              _model.isDataUploading = false;
+                                downloadUrls = (await Future.wait(
+                                  selectedMedia.map(
+                                    (m) async => await uploadData(
+                                        m.storagePath, m.bytes),
+                                  ),
+                                ))
+                                    .where((u) => u != null)
+                                    .map((u) => u!)
+                                    .toList();
+                              } finally {
+                                _model.isDataUploading = false;
+                              }
+                              if (selectedUploadedFiles.length ==
+                                      selectedMedia.length &&
+                                  downloadUrls.length == selectedMedia.length) {
+                                setState(() {
+                                  _model.uploadedLocalFile =
+                                      selectedUploadedFiles.first;
+                                  _model.uploadedFileUrl = downloadUrls.first;
+                                });
+                              } else {
+                                setState(() {});
+                                return;
+                              }
                             }
-                            if (selectedUploadedFiles.length ==
-                                    selectedMedia.length &&
-                                downloadUrls.length == selectedMedia.length) {
-                              setState(() {
-                                _model.uploadedLocalFile =
-                                    selectedUploadedFiles.first;
-                                _model.uploadedFileUrl = downloadUrls.first;
-                              });
-                            } else {
-                              setState(() {});
-                              return;
-                            }
-                          }
-                        },
-                        child: Container(
-                          width: 120.0,
-                          height: 120.0,
-                          clipBehavior: Clip.antiAlias,
-                          decoration: BoxDecoration(
-                            shape: BoxShape.circle,
+                          },
+                          child: Container(
+                            width: 120.0,
+                            height: 120.0,
+                            clipBehavior: Clip.antiAlias,
+                            decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                            ),
+                            child: Image.network(
+                              currentUserPhoto,
+                              fit: BoxFit.cover,
+                            ),
                           ),
-                          child: Image.asset(
-                            'assets/images/2vqf7_',
-                          ),
-                        ),
-                      ).animateOnPageLoad(
-                          animationsMap['circleImageOnPageLoadAnimation']!),
-                      Text(
-                        'Carregue uma foto para que possamos identificá-lo facilmente.',
-                        style: FlutterFlowTheme.of(context).bodyMedium,
-                      ).animateOnPageLoad(
-                          animationsMap['textOnPageLoadAnimation1']!),
+                        ).animateOnPageLoad(
+                            animationsMap['circleImageOnPageLoadAnimation']!),
+                      ),
+                      Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            17.0, 0.0, 17.0, 0.0),
+                        child: Text(
+                          'Carregue uma foto para que possamos identificá-lo facilmente.',
+                          style: FlutterFlowTheme.of(context)
+                              .bodyMedium
+                              .override(
+                                fontFamily: 'Inter',
+                                useGoogleFonts: GoogleFonts.asMap().containsKey(
+                                    FlutterFlowTheme.of(context)
+                                        .bodyMediumFamily),
+                              ),
+                        ).animateOnPageLoad(
+                            animationsMap['textOnPageLoadAnimation1']!),
+                      ),
                       Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(
                             20.0, 20.0, 20.0, 0.0),
@@ -430,9 +448,23 @@ class _CompleteProfileWidgetState extends State<CompleteProfileWidget>
                           obscureText: false,
                           decoration: InputDecoration(
                             labelText: 'Seu nome',
-                            labelStyle: FlutterFlowTheme.of(context).bodySmall,
-                            hintText: 'Maria  Eduarda',
-                            hintStyle: FlutterFlowTheme.of(context).bodySmall,
+                            labelStyle: FlutterFlowTheme.of(context)
+                                .bodySmall
+                                .override(
+                                  fontFamily: 'Inter',
+                                  useGoogleFonts: GoogleFonts.asMap()
+                                      .containsKey(FlutterFlowTheme.of(context)
+                                          .bodySmallFamily),
+                                ),
+                            hintText: 'Drauzio Varela',
+                            hintStyle: FlutterFlowTheme.of(context)
+                                .bodySmall
+                                .override(
+                                  fontFamily: 'Inter',
+                                  useGoogleFonts: GoogleFonts.asMap()
+                                      .containsKey(FlutterFlowTheme.of(context)
+                                          .bodySmallFamily),
+                                ),
                             enabledBorder: OutlineInputBorder(
                               borderSide: BorderSide(
                                 color: Color(0x00000000),
@@ -481,9 +513,23 @@ class _CompleteProfileWidgetState extends State<CompleteProfileWidget>
                           obscureText: false,
                           decoration: InputDecoration(
                             labelText: 'Sua idade',
-                            labelStyle: FlutterFlowTheme.of(context).bodySmall,
-                            hintText: 'i.e. 34',
-                            hintStyle: FlutterFlowTheme.of(context).bodySmall,
+                            labelStyle: FlutterFlowTheme.of(context)
+                                .bodySmall
+                                .override(
+                                  fontFamily: 'Inter',
+                                  useGoogleFonts: GoogleFonts.asMap()
+                                      .containsKey(FlutterFlowTheme.of(context)
+                                          .bodySmallFamily),
+                                ),
+                            hintText: '62',
+                            hintStyle: FlutterFlowTheme.of(context)
+                                .bodySmall
+                                .override(
+                                  fontFamily: 'Inter',
+                                  useGoogleFonts: GoogleFonts.asMap()
+                                      .containsKey(FlutterFlowTheme.of(context)
+                                          .bodySmallFamily),
+                                ),
                             enabledBorder: OutlineInputBorder(
                               borderSide: BorderSide(
                                 color: Color(0x00000000),
@@ -533,9 +579,23 @@ class _CompleteProfileWidgetState extends State<CompleteProfileWidget>
                           obscureText: false,
                           decoration: InputDecoration(
                             labelText: 'Doenças',
-                            labelStyle: FlutterFlowTheme.of(context).bodySmall,
-                            hintText: 'Que tipo de alergia você tem..',
-                            hintStyle: FlutterFlowTheme.of(context).bodySmall,
+                            labelStyle: FlutterFlowTheme.of(context)
+                                .bodySmall
+                                .override(
+                                  fontFamily: 'Inter',
+                                  useGoogleFonts: GoogleFonts.asMap()
+                                      .containsKey(FlutterFlowTheme.of(context)
+                                          .bodySmallFamily),
+                                ),
+                            hintText: 'Diabetes, hipertensão',
+                            hintStyle: FlutterFlowTheme.of(context)
+                                .bodySmall
+                                .override(
+                                  fontFamily: 'Inter',
+                                  useGoogleFonts: GoogleFonts.asMap()
+                                      .containsKey(FlutterFlowTheme.of(context)
+                                          .bodySmallFamily),
+                                ),
                             enabledBorder: OutlineInputBorder(
                               borderSide: BorderSide(
                                 color: Color(0x00000000),
@@ -584,7 +644,15 @@ class _CompleteProfileWidgetState extends State<CompleteProfileWidget>
                           children: [
                             Text(
                               'Seu sexo de  nascimento',
-                              style: FlutterFlowTheme.of(context).bodyMedium,
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    fontFamily: 'Inter',
+                                    useGoogleFonts: GoogleFonts.asMap()
+                                        .containsKey(
+                                            FlutterFlowTheme.of(context)
+                                                .bodyMediumFamily),
+                                  ),
                             ).animateOnPageLoad(
                                 animationsMap['textOnPageLoadAnimation2']!),
                           ],
@@ -608,8 +676,15 @@ class _CompleteProfileWidgetState extends State<CompleteProfileWidget>
                                 optionHeight: 25.0,
                                 textStyle:
                                     FlutterFlowTheme.of(context).bodySmall,
-                                selectedTextStyle:
-                                    FlutterFlowTheme.of(context).bodyMedium,
+                                selectedTextStyle: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: 'Inter',
+                                      useGoogleFonts: GoogleFonts.asMap()
+                                          .containsKey(
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMediumFamily),
+                                    ),
                                 textPadding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 15.0, 0.0),
                                 buttonPosition: RadioButtonPosition.left,
@@ -711,7 +786,7 @@ class _CompleteProfileWidgetState extends State<CompleteProfileWidget>
 
                                 context.pushNamed('homePage');
                               },
-                              text: 'Perfil completo',
+                              text: 'Salvar',
                               options: FFButtonOptions(
                                 width: 230.0,
                                 height: 50.0,
@@ -720,8 +795,15 @@ class _CompleteProfileWidgetState extends State<CompleteProfileWidget>
                                 iconPadding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 0.0),
                                 color: FlutterFlowTheme.of(context).primary,
-                                textStyle:
-                                    FlutterFlowTheme.of(context).titleSmall,
+                                textStyle: FlutterFlowTheme.of(context)
+                                    .titleSmall
+                                    .override(
+                                      fontFamily: 'Inter',
+                                      useGoogleFonts: GoogleFonts.asMap()
+                                          .containsKey(
+                                              FlutterFlowTheme.of(context)
+                                                  .titleSmallFamily),
+                                    ),
                                 elevation: 3.0,
                                 borderSide: BorderSide(
                                   color: Colors.transparent,

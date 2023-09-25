@@ -78,7 +78,11 @@ class _MyAppointmentsWidgetState extends State<MyAppointmentsWidget> {
         automaticallyImplyLeading: false,
         title: Text(
           'Agendamentos',
-          style: FlutterFlowTheme.of(context).displaySmall,
+          style: FlutterFlowTheme.of(context).displaySmall.override(
+                fontFamily: 'Inter',
+                useGoogleFonts: GoogleFonts.asMap().containsKey(
+                    FlutterFlowTheme.of(context).displaySmallFamily),
+              ),
         ),
         actions: [
           Padding(
@@ -105,7 +109,11 @@ class _MyAppointmentsWidgetState extends State<MyAppointmentsWidget> {
                 children: [
                   Text(
                     'Meus Agendamentos',
-                    style: FlutterFlowTheme.of(context).bodySmall,
+                    style: FlutterFlowTheme.of(context).bodySmall.override(
+                          fontFamily: 'Inter',
+                          useGoogleFonts: GoogleFonts.asMap().containsKey(
+                              FlutterFlowTheme.of(context).bodySmallFamily),
+                        ),
                   ),
                 ],
               ),
@@ -222,7 +230,16 @@ class _MyAppointmentsWidgetState extends State<MyAppointmentsWidget> {
                                                     .appointmentType,
                                                 style:
                                                     FlutterFlowTheme.of(context)
-                                                        .headlineSmall,
+                                                        .headlineSmall
+                                                        .override(
+                                                          fontFamily: 'Inter',
+                                                          useGoogleFonts: GoogleFonts
+                                                                  .asMap()
+                                                              .containsKey(
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .headlineSmallFamily),
+                                                        ),
                                               ),
                                             ),
                                           ),
@@ -247,10 +264,7 @@ class _MyAppointmentsWidgetState extends State<MyAppointmentsWidget> {
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(
-                                                  fontFamily:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .bodyMediumFamily,
+                                                  fontFamily: 'Inter',
                                                   color: FlutterFlowTheme.of(
                                                           context)
                                                       .secondary,
@@ -301,7 +315,16 @@ class _MyAppointmentsWidgetState extends State<MyAppointmentsWidget> {
                                                       style:
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .bodyMedium,
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Inter',
+                                                                useGoogleFonts: GoogleFonts
+                                                                        .asMap()
+                                                                    .containsKey(
+                                                                        FlutterFlowTheme.of(context)
+                                                                            .bodyMediumFamily),
+                                                              ),
                                                     ),
                                                   ),
                                                   Padding(
@@ -322,7 +345,16 @@ class _MyAppointmentsWidgetState extends State<MyAppointmentsWidget> {
                                                       style:
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .bodySmall,
+                                                              .bodySmall
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Inter',
+                                                                useGoogleFonts: GoogleFonts
+                                                                        .asMap()
+                                                                    .containsKey(
+                                                                        FlutterFlowTheme.of(context)
+                                                                            .bodySmallFamily),
+                                                              ),
                                                     ),
                                                   ),
                                                 ],

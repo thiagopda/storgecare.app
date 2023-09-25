@@ -166,7 +166,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                 children: [
                                   Card(
                                     clipBehavior: Clip.antiAliasWithSaveLayer,
-                                    color: FlutterFlowTheme.of(context).primary,
+                                    color: FlutterFlowTheme.of(context).accent3,
                                     elevation: 2.0,
                                     shape: RoundedRectangleBorder(
                                       borderRadius: BorderRadius.circular(40.0),
@@ -174,15 +174,17 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                     child: Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           2.0, 2.0, 2.0, 2.0),
-                                      child: Container(
-                                        width: 60.0,
-                                        height: 60.0,
-                                        clipBehavior: Clip.antiAlias,
-                                        decoration: BoxDecoration(
-                                          shape: BoxShape.circle,
-                                        ),
-                                        child: Image.asset(
-                                          'assets/images/profile-pro.jpeg',
+                                      child: AuthUserStreamWidget(
+                                        builder: (context) => Container(
+                                          width: 60.0,
+                                          height: 60.0,
+                                          clipBehavior: Clip.antiAlias,
+                                          decoration: BoxDecoration(
+                                            shape: BoxShape.circle,
+                                          ),
+                                          child: Image.network(
+                                            currentUserPhoto,
+                                          ),
                                         ),
                                       ),
                                     ),
@@ -292,7 +294,14 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                   Text(
                                     profilePageUsersRecord.displayName,
                                     style: FlutterFlowTheme.of(context)
-                                        .headlineSmall,
+                                        .headlineSmall
+                                        .override(
+                                          fontFamily: 'Inter',
+                                          useGoogleFonts: GoogleFonts.asMap()
+                                              .containsKey(
+                                                  FlutterFlowTheme.of(context)
+                                                      .headlineSmallFamily),
+                                        ),
                                   ),
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
@@ -300,7 +309,14 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                     child: Text(
                                       profilePageUsersRecord.age.toString(),
                                       style: FlutterFlowTheme.of(context)
-                                          .titleMedium,
+                                          .titleMedium
+                                          .override(
+                                            fontFamily: 'Inter',
+                                            useGoogleFonts: GoogleFonts.asMap()
+                                                .containsKey(
+                                                    FlutterFlowTheme.of(context)
+                                                        .titleMediumFamily),
+                                          ),
                                     ),
                                   ),
                                 ],
@@ -317,9 +333,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
-                                          fontFamily:
-                                              FlutterFlowTheme.of(context)
-                                                  .bodyMediumFamily,
+                                          fontFamily: 'Inter',
                                           color: FlutterFlowTheme.of(context)
                                               .primary,
                                           fontWeight: FontWeight.w500,
@@ -341,8 +355,15 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                   Text(
                                     'Doenças',
                                     textAlign: TextAlign.start,
-                                    style:
-                                        FlutterFlowTheme.of(context).bodySmall,
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodySmall
+                                        .override(
+                                          fontFamily: 'Inter',
+                                          useGoogleFonts: GoogleFonts.asMap()
+                                              .containsKey(
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodySmallFamily),
+                                        ),
                                   ),
                                 ],
                               ),
@@ -357,7 +378,14 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                     child: AutoSizeText(
                                       profilePageUsersRecord.ailments,
                                       style: FlutterFlowTheme.of(context)
-                                          .headlineSmall,
+                                          .headlineSmall
+                                          .override(
+                                            fontFamily: 'Inter',
+                                            useGoogleFonts: GoogleFonts.asMap()
+                                                .containsKey(
+                                                    FlutterFlowTheme.of(context)
+                                                        .headlineSmallFamily),
+                                          ),
                                     ),
                                   ),
                                 ],
@@ -378,7 +406,16 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                         'Próx. Atendimento',
                                         textAlign: TextAlign.start,
                                         style: FlutterFlowTheme.of(context)
-                                            .bodySmall,
+                                            .bodySmall
+                                            .override(
+                                              fontFamily: 'Inter',
+                                              useGoogleFonts:
+                                                  GoogleFonts.asMap()
+                                                      .containsKey(
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodySmallFamily),
+                                            ),
                                       ),
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
@@ -386,7 +423,16 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                         child: Text(
                                           'Ago 20, 2024',
                                           style: FlutterFlowTheme.of(context)
-                                              .displaySmall,
+                                              .displaySmall
+                                              .override(
+                                                fontFamily: 'Inter',
+                                                useGoogleFonts: GoogleFonts
+                                                        .asMap()
+                                                    .containsKey(
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .displaySmallFamily),
+                                              ),
                                         ),
                                       ),
                                     ],
@@ -565,12 +611,12 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                 MainAxisAlignment.spaceBetween,
                                             children: [
                                               Text(
-                                                'Switch to Light Mode',
+                                                'Alternar para o modo Claro.',
                                                 style:
                                                     FlutterFlowTheme.of(context)
                                                         .bodyMedium
                                                         .override(
-                                                          fontFamily: 'Outfit',
+                                                          fontFamily: 'Inter',
                                                           color: Colors.white,
                                                           fontSize: 14.0,
                                                           fontWeight:
@@ -683,7 +729,14 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                         children: [
                           Text(
                             'Atendimentos anteriores',
-                            style: FlutterFlowTheme.of(context).bodySmall,
+                            style: FlutterFlowTheme.of(context)
+                                .bodySmall
+                                .override(
+                                  fontFamily: 'Inter',
+                                  useGoogleFonts: GoogleFonts.asMap()
+                                      .containsKey(FlutterFlowTheme.of(context)
+                                          .bodySmallFamily),
+                                ),
                           ),
                         ],
                       ),
@@ -827,7 +880,16 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                         style:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .headlineSmall,
+                                                                .headlineSmall
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Inter',
+                                                                  useGoogleFonts: GoogleFonts
+                                                                          .asMap()
+                                                                      .containsKey(
+                                                                          FlutterFlowTheme.of(context)
+                                                                              .headlineSmallFamily),
+                                                                ),
                                                       ),
                                                     ),
                                                   ),
@@ -924,7 +986,16 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                         style:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .bodyMedium,
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Inter',
+                                                                  useGoogleFonts: GoogleFonts
+                                                                          .asMap()
+                                                                      .containsKey(
+                                                                          FlutterFlowTheme.of(context)
+                                                                              .bodyMediumFamily),
+                                                                ),
                                                       ),
                                                     ),
                                                     Expanded(
@@ -943,9 +1014,8 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                                   .of(context)
                                                               .bodyMedium
                                                               .override(
-                                                                fontFamily: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMediumFamily,
+                                                                fontFamily:
+                                                                    'Inter',
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .secondary,

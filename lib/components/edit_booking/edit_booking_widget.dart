@@ -105,7 +105,14 @@ class _EditBookingWidgetState extends State<EditBookingWidget> {
                               0.0, 8.0, 0.0, 0.0),
                           child: Text(
                             'Editar Agendamento',
-                            style: FlutterFlowTheme.of(context).headlineSmall,
+                            style: FlutterFlowTheme.of(context)
+                                .headlineSmall
+                                .override(
+                                  fontFamily: 'Inter',
+                                  useGoogleFonts: GoogleFonts.asMap()
+                                      .containsKey(FlutterFlowTheme.of(context)
+                                          .headlineSmallFamily),
+                                ),
                           ),
                         ),
                         Row(
@@ -117,7 +124,15 @@ class _EditBookingWidgetState extends State<EditBookingWidget> {
                                     0.0, 8.0, 0.0, 0.0),
                                 child: Text(
                                   'Edite os campos abaixo para alterar seu agendamento.',
-                                  style: FlutterFlowTheme.of(context).bodySmall,
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodySmall
+                                      .override(
+                                        fontFamily: 'Inter',
+                                        useGoogleFonts: GoogleFonts.asMap()
+                                            .containsKey(
+                                                FlutterFlowTheme.of(context)
+                                                    .bodySmallFamily),
+                                      ),
                                 ),
                               ),
                             ),
@@ -128,7 +143,14 @@ class _EditBookingWidgetState extends State<EditBookingWidget> {
                               0.0, 12.0, 0.0, 0.0),
                           child: Text(
                             'Os e-mails serão enviados para:',
-                            style: FlutterFlowTheme.of(context).bodyMedium,
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'Inter',
+                                  useGoogleFonts: GoogleFonts.asMap()
+                                      .containsKey(FlutterFlowTheme.of(context)
+                                          .bodyMediumFamily),
+                                ),
                           ),
                         ),
                         Padding(
@@ -139,8 +161,7 @@ class _EditBookingWidgetState extends State<EditBookingWidget> {
                             style: FlutterFlowTheme.of(context)
                                 .titleMedium
                                 .override(
-                                  fontFamily: FlutterFlowTheme.of(context)
-                                      .titleMediumFamily,
+                                  fontFamily: 'Inter',
                                   color: FlutterFlowTheme.of(context).primary,
                                   useGoogleFonts: GoogleFonts.asMap()
                                       .containsKey(FlutterFlowTheme.of(context)
@@ -196,8 +217,7 @@ class _EditBookingWidgetState extends State<EditBookingWidget> {
                             style: FlutterFlowTheme.of(context)
                                 .titleMedium
                                 .override(
-                                  fontFamily: FlutterFlowTheme.of(context)
-                                      .titleMediumFamily,
+                                  fontFamily: 'Inter',
                                   color:
                                       FlutterFlowTheme.of(context).primaryText,
                                   useGoogleFonts: GoogleFonts.asMap()
@@ -233,8 +253,7 @@ class _EditBookingWidgetState extends State<EditBookingWidget> {
                             textStyle: FlutterFlowTheme.of(context)
                                 .titleMedium
                                 .override(
-                                  fontFamily: FlutterFlowTheme.of(context)
-                                      .titleMediumFamily,
+                                  fontFamily: 'Inter',
                                   color:
                                       FlutterFlowTheme.of(context).primaryText,
                                   useGoogleFonts: GoogleFonts.asMap()
@@ -268,8 +287,15 @@ class _EditBookingWidgetState extends State<EditBookingWidget> {
                             obscureText: false,
                             decoration: InputDecoration(
                               labelText: 'Descreva o problema',
-                              labelStyle:
-                                  FlutterFlowTheme.of(context).bodySmall,
+                              labelStyle: FlutterFlowTheme.of(context)
+                                  .bodySmall
+                                  .override(
+                                    fontFamily: 'Inter',
+                                    useGoogleFonts: GoogleFonts.asMap()
+                                        .containsKey(
+                                            FlutterFlowTheme.of(context)
+                                                .bodySmallFamily),
+                                  ),
                               enabledBorder: OutlineInputBorder(
                                 borderSide: BorderSide(
                                   color: FlutterFlowTheme.of(context)
@@ -413,10 +439,7 @@ class _EditBookingWidgetState extends State<EditBookingWidget> {
                                                   FlutterFlowTheme.of(context)
                                                       .bodyMedium
                                                       .override(
-                                                        fontFamily:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyMediumFamily,
+                                                        fontFamily: 'Inter',
                                                         fontSize: 12.0,
                                                         useGoogleFonts: GoogleFonts
                                                                 .asMap()
@@ -447,10 +470,7 @@ class _EditBookingWidgetState extends State<EditBookingWidget> {
                                                           context)
                                                       .bodySmall
                                                       .override(
-                                                        fontFamily:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodySmallFamily,
+                                                        fontFamily: 'Inter',
                                                         color:
                                                             FlutterFlowTheme.of(
                                                                     context)
@@ -483,10 +503,7 @@ class _EditBookingWidgetState extends State<EditBookingWidget> {
                                                           context)
                                                       .bodySmall
                                                       .override(
-                                                        fontFamily:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodySmallFamily,
+                                                        fontFamily: 'Inter',
                                                         color:
                                                             FlutterFlowTheme.of(
                                                                     context)
@@ -548,8 +565,7 @@ class _EditBookingWidgetState extends State<EditBookingWidget> {
                                   textStyle: FlutterFlowTheme.of(context)
                                       .titleMedium
                                       .override(
-                                        fontFamily: FlutterFlowTheme.of(context)
-                                            .titleMediumFamily,
+                                        fontFamily: 'Inter',
                                         color: FlutterFlowTheme.of(context)
                                             .primaryText,
                                         useGoogleFonts: GoogleFonts.asMap()
@@ -590,8 +606,7 @@ class _EditBookingWidgetState extends State<EditBookingWidget> {
                                   textStyle: FlutterFlowTheme.of(context)
                                       .titleSmall
                                       .override(
-                                        fontFamily: FlutterFlowTheme.of(context)
-                                            .titleSmallFamily,
+                                        fontFamily: 'Inter',
                                         color: Colors.white,
                                         fontWeight: FontWeight.w500,
                                         useGoogleFonts: GoogleFonts.asMap()

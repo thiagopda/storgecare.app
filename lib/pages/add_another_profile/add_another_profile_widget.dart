@@ -1,3 +1,4 @@
+import '/auth/firebase_auth/auth_util.dart';
 import '/flutter_flow/flutter_flow_radio_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -66,7 +67,11 @@ class _AddAnotherProfileWidgetState extends State<AddAnotherProfileWidget> {
         ),
         title: Text(
           'Adicionar outro perfil',
-          style: FlutterFlowTheme.of(context).headlineSmall,
+          style: FlutterFlowTheme.of(context).headlineSmall.override(
+                fontFamily: 'Inter',
+                useGoogleFonts: GoogleFonts.asMap().containsKey(
+                    FlutterFlowTheme.of(context).headlineSmallFamily),
+              ),
         ),
         actions: [],
         centerTitle: false,
@@ -82,15 +87,17 @@ class _AddAnotherProfileWidgetState extends State<AddAnotherProfileWidget> {
             child: Column(
               mainAxisSize: MainAxisSize.max,
               children: [
-                Container(
-                  width: 120.0,
-                  height: 120.0,
-                  clipBehavior: Clip.antiAlias,
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                  ),
-                  child: Image.asset(
-                    'assets/images/2vqf7_',
+                AuthUserStreamWidget(
+                  builder: (context) => Container(
+                    width: 120.0,
+                    height: 120.0,
+                    clipBehavior: Clip.antiAlias,
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                    ),
+                    child: Image.network(
+                      currentUserPhoto,
+                    ),
                   ),
                 ),
                 Row(
@@ -100,7 +107,12 @@ class _AddAnotherProfileWidgetState extends State<AddAnotherProfileWidget> {
                       child: Text(
                         'Carregue uma foto para identificarmos facilmente essa pessoa.',
                         textAlign: TextAlign.center,
-                        style: FlutterFlowTheme.of(context).bodyMedium,
+                        style: FlutterFlowTheme.of(context).bodyMedium.override(
+                              fontFamily: 'Inter',
+                              useGoogleFonts: GoogleFonts.asMap().containsKey(
+                                  FlutterFlowTheme.of(context)
+                                      .bodyMediumFamily),
+                            ),
                       ),
                     ),
                   ],
@@ -167,8 +179,7 @@ class _AddAnotherProfileWidgetState extends State<AddAnotherProfileWidget> {
                           20.0, 24.0, 20.0, 24.0),
                     ),
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
-                          fontFamily:
-                              FlutterFlowTheme.of(context).bodyMediumFamily,
+                          fontFamily: 'Inter',
                           color: FlutterFlowTheme.of(context).secondaryText,
                           useGoogleFonts: GoogleFonts.asMap().containsKey(
                               FlutterFlowTheme.of(context).bodyMediumFamily),
@@ -239,8 +250,7 @@ class _AddAnotherProfileWidgetState extends State<AddAnotherProfileWidget> {
                           20.0, 24.0, 20.0, 24.0),
                     ),
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
-                          fontFamily:
-                              FlutterFlowTheme.of(context).bodyMediumFamily,
+                          fontFamily: 'Inter',
                           color: FlutterFlowTheme.of(context).secondaryText,
                           useGoogleFonts: GoogleFonts.asMap().containsKey(
                               FlutterFlowTheme.of(context).bodyMediumFamily),
@@ -312,8 +322,7 @@ class _AddAnotherProfileWidgetState extends State<AddAnotherProfileWidget> {
                           20.0, 24.0, 20.0, 24.0),
                     ),
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
-                          fontFamily:
-                              FlutterFlowTheme.of(context).bodyMediumFamily,
+                          fontFamily: 'Inter',
                           color: FlutterFlowTheme.of(context).textColor,
                           useGoogleFonts: GoogleFonts.asMap().containsKey(
                               FlutterFlowTheme.of(context).bodyMediumFamily),
@@ -384,8 +393,7 @@ class _AddAnotherProfileWidgetState extends State<AddAnotherProfileWidget> {
                           20.0, 24.0, 20.0, 24.0),
                     ),
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
-                          fontFamily:
-                              FlutterFlowTheme.of(context).bodyMediumFamily,
+                          fontFamily: 'Inter',
                           color: FlutterFlowTheme.of(context).textColor,
                           useGoogleFonts: GoogleFonts.asMap().containsKey(
                               FlutterFlowTheme.of(context).bodyMediumFamily),
@@ -403,7 +411,12 @@ class _AddAnotherProfileWidgetState extends State<AddAnotherProfileWidget> {
                     children: [
                       Text(
                         'Sexo de  nascimento  da  pessoa',
-                        style: FlutterFlowTheme.of(context).bodyMedium,
+                        style: FlutterFlowTheme.of(context).bodyMedium.override(
+                              fontFamily: 'Inter',
+                              useGoogleFonts: GoogleFonts.asMap().containsKey(
+                                  FlutterFlowTheme.of(context)
+                                      .bodyMediumFamily),
+                            ),
                       ),
                     ],
                   ),
@@ -431,8 +444,7 @@ class _AddAnotherProfileWidgetState extends State<AddAnotherProfileWidget> {
                               selectedTextStyle: FlutterFlowTheme.of(context)
                                   .titleSmall
                                   .override(
-                                    fontFamily: FlutterFlowTheme.of(context)
-                                        .titleSmallFamily,
+                                    fontFamily: 'Inter',
                                     color: FlutterFlowTheme.of(context)
                                         .primaryText,
                                     useGoogleFonts: GoogleFonts.asMap()
@@ -476,8 +488,7 @@ class _AddAnotherProfileWidgetState extends State<AddAnotherProfileWidget> {
                       textStyle: FlutterFlowTheme.of(context)
                           .titleSmall
                           .override(
-                            fontFamily:
-                                FlutterFlowTheme.of(context).titleSmallFamily,
+                            fontFamily: 'Inter',
                             color: FlutterFlowTheme.of(context).textColor,
                             useGoogleFonts: GoogleFonts.asMap().containsKey(
                                 FlutterFlowTheme.of(context).titleSmallFamily),

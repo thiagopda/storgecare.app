@@ -1,3 +1,4 @@
+import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -88,7 +89,11 @@ class _AppointmentDetailsProfileWidgetState
             ),
             title: Text(
               'Details',
-              style: FlutterFlowTheme.of(context).headlineSmall,
+              style: FlutterFlowTheme.of(context).headlineSmall.override(
+                    fontFamily: 'Inter',
+                    useGoogleFonts: GoogleFonts.asMap().containsKey(
+                        FlutterFlowTheme.of(context).headlineSmallFamily),
+                  ),
             ),
             actions: [],
             centerTitle: false,
@@ -106,7 +111,14 @@ class _AppointmentDetailsProfileWidgetState
                       Expanded(
                         child: Text(
                           'Tipo de  Agendamento',
-                          style: FlutterFlowTheme.of(context).bodyMedium,
+                          style: FlutterFlowTheme.of(context)
+                              .bodyMedium
+                              .override(
+                                fontFamily: 'Inter',
+                                useGoogleFonts: GoogleFonts.asMap().containsKey(
+                                    FlutterFlowTheme.of(context)
+                                        .bodyMediumFamily),
+                              ),
                         ),
                       ),
                     ],
@@ -124,8 +136,7 @@ class _AppointmentDetailsProfileWidgetState
                           style: FlutterFlowTheme.of(context)
                               .headlineSmall
                               .override(
-                                fontFamily: FlutterFlowTheme.of(context)
-                                    .headlineSmallFamily,
+                                fontFamily: 'Inter',
                                 fontWeight: FontWeight.bold,
                                 useGoogleFonts: GoogleFonts.asMap().containsKey(
                                     FlutterFlowTheme.of(context)
@@ -144,8 +155,15 @@ class _AppointmentDetailsProfileWidgetState
                     children: [
                       Expanded(
                         child: Text(
-                          'Para',
-                          style: FlutterFlowTheme.of(context).bodyMedium,
+                          'Para:',
+                          style: FlutterFlowTheme.of(context)
+                              .bodyMedium
+                              .override(
+                                fontFamily: 'Inter',
+                                useGoogleFonts: GoogleFonts.asMap().containsKey(
+                                    FlutterFlowTheme.of(context)
+                                        .bodyMediumFamily),
+                              ),
                         ),
                       ),
                     ],
@@ -160,7 +178,14 @@ class _AppointmentDetailsProfileWidgetState
                         child: Text(
                           appointmentDetailsProfileAppointmentsRecord
                               .appointmentDescription,
-                          style: FlutterFlowTheme.of(context).bodySmall,
+                          style: FlutterFlowTheme.of(context)
+                              .bodySmall
+                              .override(
+                                fontFamily: 'Inter',
+                                useGoogleFonts: GoogleFonts.asMap().containsKey(
+                                    FlutterFlowTheme.of(context)
+                                        .bodySmallFamily),
+                              ),
                         ),
                       ),
                     ],
@@ -174,8 +199,15 @@ class _AppointmentDetailsProfileWidgetState
                     children: [
                       Expanded(
                         child: Text(
-                          'Para',
-                          style: FlutterFlowTheme.of(context).bodyMedium,
+                          'Para:',
+                          style: FlutterFlowTheme.of(context)
+                              .bodyMedium
+                              .override(
+                                fontFamily: 'Inter',
+                                useGoogleFonts: GoogleFonts.asMap().containsKey(
+                                    FlutterFlowTheme.of(context)
+                                        .bodyMediumFamily),
+                              ),
                         ),
                       ),
                     ],
@@ -230,7 +262,7 @@ class _AppointmentDetailsProfileWidgetState
                                     Card(
                                       clipBehavior: Clip.antiAliasWithSaveLayer,
                                       color:
-                                          FlutterFlowTheme.of(context).primary,
+                                          FlutterFlowTheme.of(context).accent3,
                                       elevation: 2.0,
                                       shape: RoundedRectangleBorder(
                                         borderRadius:
@@ -239,15 +271,17 @@ class _AppointmentDetailsProfileWidgetState
                                       child: Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
                                             2.0, 2.0, 2.0, 2.0),
-                                        child: Container(
-                                          width: 40.0,
-                                          height: 40.0,
-                                          clipBehavior: Clip.antiAlias,
-                                          decoration: BoxDecoration(
-                                            shape: BoxShape.circle,
-                                          ),
-                                          child: Image.asset(
-                                            'assets/images/profile-pro.jpeg',
+                                        child: AuthUserStreamWidget(
+                                          builder: (context) => Container(
+                                            width: 40.0,
+                                            height: 40.0,
+                                            clipBehavior: Clip.antiAlias,
+                                            decoration: BoxDecoration(
+                                              shape: BoxShape.circle,
+                                            ),
+                                            child: Image.network(
+                                              currentUserPhoto,
+                                            ),
                                           ),
                                         ),
                                       ),
@@ -272,10 +306,7 @@ class _AppointmentDetailsProfileWidgetState
                                                     FlutterFlowTheme.of(context)
                                                         .titleMedium
                                                         .override(
-                                                          fontFamily:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .titleMediumFamily,
+                                                          fontFamily: 'Inter',
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .primaryText,
@@ -295,13 +326,8 @@ class _AppointmentDetailsProfileWidgetState
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(
-                                                  fontFamily:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .bodyMediumFamily,
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .primary,
+                                                  fontFamily: 'Inter',
+                                                  color: Color(0xFFE3415F),
                                                   useGoogleFonts: GoogleFonts
                                                           .asMap()
                                                       .containsKey(
@@ -334,7 +360,14 @@ class _AppointmentDetailsProfileWidgetState
                               0.0, 16.0, 0.0, 0.0),
                           child: Text(
                             'Quando',
-                            style: FlutterFlowTheme.of(context).bodyMedium,
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'Inter',
+                                  useGoogleFonts: GoogleFonts.asMap()
+                                      .containsKey(FlutterFlowTheme.of(context)
+                                          .bodyMediumFamily),
+                                ),
                           ),
                         ),
                       ),
@@ -353,7 +386,13 @@ class _AppointmentDetailsProfileWidgetState
                               .appointmentTime!,
                           locale: FFLocalizations.of(context).languageCode,
                         ),
-                        style: FlutterFlowTheme.of(context).displaySmall,
+                        style:
+                            FlutterFlowTheme.of(context).displaySmall.override(
+                                  fontFamily: 'Inter',
+                                  useGoogleFonts: GoogleFonts.asMap()
+                                      .containsKey(FlutterFlowTheme.of(context)
+                                          .displaySmallFamily),
+                                ),
                       ),
                       Padding(
                         padding:
@@ -365,7 +404,14 @@ class _AppointmentDetailsProfileWidgetState
                                 .appointmentTime!,
                             locale: FFLocalizations.of(context).languageCode,
                           ),
-                          style: FlutterFlowTheme.of(context).displaySmall,
+                          style: FlutterFlowTheme.of(context)
+                              .displaySmall
+                              .override(
+                                fontFamily: 'Inter',
+                                useGoogleFonts: GoogleFonts.asMap().containsKey(
+                                    FlutterFlowTheme.of(context)
+                                        .displaySmallFamily),
+                              ),
                         ),
                       ),
                     ],
@@ -392,8 +438,7 @@ class _AppointmentDetailsProfileWidgetState
                       textStyle: FlutterFlowTheme.of(context)
                           .titleSmall
                           .override(
-                            fontFamily:
-                                FlutterFlowTheme.of(context).titleSmallFamily,
+                            fontFamily: 'Inter',
                             color: FlutterFlowTheme.of(context).primaryText,
                             fontWeight: FontWeight.normal,
                             useGoogleFonts: GoogleFonts.asMap().containsKey(

@@ -96,7 +96,13 @@ class _BookingOldWidgetState extends State<BookingOldWidget> {
                     padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
                     child: Text(
                       'Agendar Atendimento',
-                      style: FlutterFlowTheme.of(context).headlineSmall,
+                      style:
+                          FlutterFlowTheme.of(context).headlineSmall.override(
+                                fontFamily: 'Inter',
+                                useGoogleFonts: GoogleFonts.asMap().containsKey(
+                                    FlutterFlowTheme.of(context)
+                                        .headlineSmallFamily),
+                              ),
                     ),
                   ),
                   Row(
@@ -108,7 +114,14 @@ class _BookingOldWidgetState extends State<BookingOldWidget> {
                               0.0, 8.0, 0.0, 0.0),
                           child: Text(
                             'Preencha os dados abaixo para agendar seu horário em nosso escritório.',
-                            style: FlutterFlowTheme.of(context).bodySmall,
+                            style: FlutterFlowTheme.of(context)
+                                .bodySmall
+                                .override(
+                                  fontFamily: 'Inter',
+                                  useGoogleFonts: GoogleFonts.asMap()
+                                      .containsKey(FlutterFlowTheme.of(context)
+                                          .bodySmallFamily),
+                                ),
                           ),
                         ),
                       ),
@@ -125,7 +138,13 @@ class _BookingOldWidgetState extends State<BookingOldWidget> {
                       obscureText: false,
                       decoration: InputDecoration(
                         labelText: 'Endereço de email',
-                        labelStyle: FlutterFlowTheme.of(context).bodySmall,
+                        labelStyle: FlutterFlowTheme.of(context)
+                            .bodySmall
+                            .override(
+                              fontFamily: 'Inter',
+                              useGoogleFonts: GoogleFonts.asMap().containsKey(
+                                  FlutterFlowTheme.of(context).bodySmallFamily),
+                            ),
                         enabledBorder: OutlineInputBorder(
                           borderSide: BorderSide(
                             color:
@@ -162,8 +181,7 @@ class _BookingOldWidgetState extends State<BookingOldWidget> {
                             20.0, 24.0, 0.0, 24.0),
                       ),
                       style: FlutterFlowTheme.of(context).titleSmall.override(
-                            fontFamily:
-                                FlutterFlowTheme.of(context).titleSmallFamily,
+                            fontFamily: 'Inter',
                             color: FlutterFlowTheme.of(context).primary,
                             fontWeight: FontWeight.bold,
                             useGoogleFonts: GoogleFonts.asMap().containsKey(
@@ -185,7 +203,13 @@ class _BookingOldWidgetState extends State<BookingOldWidget> {
                       obscureText: false,
                       decoration: InputDecoration(
                         labelText: 'Agendar para',
-                        labelStyle: FlutterFlowTheme.of(context).bodySmall,
+                        labelStyle: FlutterFlowTheme.of(context)
+                            .bodySmall
+                            .override(
+                              fontFamily: 'Inter',
+                              useGoogleFonts: GoogleFonts.asMap().containsKey(
+                                  FlutterFlowTheme.of(context).bodySmallFamily),
+                            ),
                         enabledBorder: OutlineInputBorder(
                           borderSide: BorderSide(
                             color:
@@ -222,8 +246,7 @@ class _BookingOldWidgetState extends State<BookingOldWidget> {
                             20.0, 24.0, 0.0, 24.0),
                       ),
                       style: FlutterFlowTheme.of(context).titleSmall.override(
-                            fontFamily:
-                                FlutterFlowTheme.of(context).titleSmallFamily,
+                            fontFamily: 'Inter',
                             color: FlutterFlowTheme.of(context).primaryText,
                             useGoogleFonts: GoogleFonts.asMap().containsKey(
                                 FlutterFlowTheme.of(context).titleSmallFamily),
@@ -251,8 +274,14 @@ class _BookingOldWidgetState extends State<BookingOldWidget> {
                           setState(() => _model.dropDownValue = val),
                       width: MediaQuery.sizeOf(context).width * 0.9,
                       height: 60.0,
-                      textStyle: FlutterFlowTheme.of(context).titleMedium,
-                      hintText: 'Qual procedimento você deseja?',
+                      textStyle: FlutterFlowTheme.of(context)
+                          .titleMedium
+                          .override(
+                            fontFamily: 'Inter',
+                            useGoogleFonts: GoogleFonts.asMap().containsKey(
+                                FlutterFlowTheme.of(context).titleMediumFamily),
+                          ),
+                      hintText: 'Escolha um serviço',
                       icon: Icon(
                         Icons.keyboard_arrow_down_rounded,
                         color: FlutterFlowTheme.of(context).grayLight,
@@ -279,7 +308,13 @@ class _BookingOldWidgetState extends State<BookingOldWidget> {
                       obscureText: false,
                       decoration: InputDecoration(
                         labelText: 'Descreva o problema, por favor.',
-                        labelStyle: FlutterFlowTheme.of(context).bodySmall,
+                        labelStyle: FlutterFlowTheme.of(context)
+                            .bodySmall
+                            .override(
+                              fontFamily: 'Inter',
+                              useGoogleFonts: GoogleFonts.asMap().containsKey(
+                                  FlutterFlowTheme.of(context).bodySmallFamily),
+                            ),
                         enabledBorder: OutlineInputBorder(
                           borderSide: BorderSide(
                             color:
@@ -316,8 +351,7 @@ class _BookingOldWidgetState extends State<BookingOldWidget> {
                             20.0, 24.0, 0.0, 24.0),
                       ),
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
-                            fontFamily:
-                                FlutterFlowTheme.of(context).bodyMediumFamily,
+                            fontFamily: 'Inter',
                             color: FlutterFlowTheme.of(context).textColor,
                             useGoogleFonts: GoogleFonts.asMap().containsKey(
                                 FlutterFlowTheme.of(context).bodyMediumFamily),
@@ -411,9 +445,7 @@ class _BookingOldWidgetState extends State<BookingOldWidget> {
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              fontFamily:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMediumFamily,
+                                              fontFamily: 'Inter',
                                               fontSize: 12.0,
                                               useGoogleFonts: GoogleFonts
                                                       .asMap()
@@ -437,9 +469,7 @@ class _BookingOldWidgetState extends State<BookingOldWidget> {
                                         style: FlutterFlowTheme.of(context)
                                             .bodySmall
                                             .override(
-                                              fontFamily:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodySmallFamily,
+                                              fontFamily: 'Inter',
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .tertiary,
@@ -510,8 +540,7 @@ class _BookingOldWidgetState extends State<BookingOldWidget> {
                             textStyle: FlutterFlowTheme.of(context)
                                 .titleSmall
                                 .override(
-                                  fontFamily: FlutterFlowTheme.of(context)
-                                      .titleSmallFamily,
+                                  fontFamily: 'Inter',
                                   color: Colors.white,
                                   fontWeight: FontWeight.w500,
                                   useGoogleFonts: GoogleFonts.asMap()
@@ -553,8 +582,7 @@ class _BookingOldWidgetState extends State<BookingOldWidget> {
                             textStyle: FlutterFlowTheme.of(context)
                                 .titleSmall
                                 .override(
-                                  fontFamily: FlutterFlowTheme.of(context)
-                                      .titleSmallFamily,
+                                  fontFamily: 'Inter',
                                   color: Colors.white,
                                   fontWeight: FontWeight.w500,
                                   useGoogleFonts: GoogleFonts.asMap()
