@@ -113,43 +113,47 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
                   children: [
-                    Container(
-                      width: 90.0,
-                      height: 90.0,
-                      decoration: BoxDecoration(
-                        color: FlutterFlowTheme.of(context).darkBackground,
-                        image: DecorationImage(
-                          fit: BoxFit.cover,
-                          image: Image.asset(
-                            'assets/images/userprofile.png',
-                          ).image,
-                        ),
-                        boxShadow: [
-                          BoxShadow(
-                            blurRadius: 16.0,
-                            color: Color(0x621A1F24),
-                            offset: Offset(0.0, 6.0),
-                            spreadRadius: 0.0,
-                          )
-                        ],
-                        shape: BoxShape.circle,
-                      ),
-                      child: AuthUserStreamWidget(
-                        builder: (context) => Container(
-                          width: 80.0,
-                          height: 80.0,
-                          clipBehavior: Clip.antiAlias,
-                          decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                          ),
-                          child: Image.network(
-                            currentUserPhoto,
+                    if (_model.uploadedFileUrl == null ||
+                        _model.uploadedFileUrl == '')
+                      Container(
+                        width: 90.0,
+                        height: 90.0,
+                        decoration: BoxDecoration(
+                          color: FlutterFlowTheme.of(context).darkBackground,
+                          image: DecorationImage(
                             fit: BoxFit.cover,
-                            alignment: Alignment(0.00, 0.00),
+                            image: Image.asset(
+                              'assets/images/userprofile.png',
+                            ).image,
+                          ),
+                          boxShadow: [
+                            BoxShadow(
+                              blurRadius: 16.0,
+                              color: Color(0x621A1F24),
+                              offset: Offset(0.0, 6.0),
+                              spreadRadius: 0.0,
+                            )
+                          ],
+                          shape: BoxShape.circle,
+                        ),
+                        child: Visibility(
+                          visible: _model.uploadedFileUrl != null &&
+                              _model.uploadedFileUrl != '',
+                          child: Container(
+                            width: 80.0,
+                            height: 80.0,
+                            clipBehavior: Clip.antiAlias,
+                            decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                            ),
+                            child: Image.network(
+                              _model.uploadedFileUrl,
+                              fit: BoxFit.cover,
+                              alignment: Alignment(0.00, 0.00),
+                            ),
                           ),
                         ),
                       ),
-                    ),
                     Padding(
                       padding:
                           EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
@@ -158,7 +162,9 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                           final selectedMedia =
                               await selectMediaWithSourceBottomSheet(
                             context: context,
+                            imageQuality: 30,
                             allowPhoto: true,
+                            pickerFontFamily: 'Inter',
                           );
                           if (selectedMedia != null &&
                               selectedMedia.every((m) =>

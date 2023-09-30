@@ -122,8 +122,10 @@ class _MyAppointmentsWidgetState extends State<MyAppointmentsWidget> {
               child: StreamBuilder<List<AppointmentsRecord>>(
                 stream: queryAppointmentsRecord(
                   queryBuilder: (appointmentsRecord) => appointmentsRecord
-                      .where('appointmentPerson',
-                          isEqualTo: currentUserReference)
+                      .where(
+                        'appointmentPerson',
+                        isEqualTo: currentUserReference,
+                      )
                       .orderBy('appointmentTime'),
                 ),
                 builder: (context, snapshot) {

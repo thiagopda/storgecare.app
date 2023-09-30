@@ -58,6 +58,11 @@
 	<key>NSPhotoLibraryUsageDescription</key>
     <string>Para fazer upload de dados, este aplicativo requer permissão para acessar a galeria de fotos</string>
 
+    <key>UIBackgroundModes</key>
+    <array>
+        <string>fetch</string>
+        <string>remote-notification</string>
+    </array>
 
 
 	<key>UILaunchStoryboardName</key>

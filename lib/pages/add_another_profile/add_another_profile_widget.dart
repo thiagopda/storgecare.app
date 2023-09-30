@@ -66,7 +66,7 @@ class _AddAnotherProfileWidgetState extends State<AddAnotherProfileWidget> {
           ),
         ),
         title: Text(
-          'Adicionar outro perfil',
+          'Atualizar Perfil',
           style: FlutterFlowTheme.of(context).headlineSmall.override(
                 fontFamily: 'Inter',
                 useGoogleFonts: GoogleFonts.asMap().containsKey(

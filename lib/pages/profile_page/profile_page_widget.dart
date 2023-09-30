@@ -748,10 +748,14 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                         stream: queryAppointmentsRecord(
                           queryBuilder: (appointmentsRecord) =>
                               appointmentsRecord
-                                  .where('appointmentTime',
-                                      isLessThan: getCurrentTimestamp)
-                                  .where('appointmentPerson',
-                                      isEqualTo: currentUserReference),
+                                  .where(
+                                    'appointmentTime',
+                                    isLessThan: getCurrentTimestamp,
+                                  )
+                                  .where(
+                                    'appointmentPerson',
+                                    isEqualTo: currentUserReference,
+                                  ),
                         ),
                         builder: (context, snapshot) {
                           // Customize what your widget looks like when it's loading.

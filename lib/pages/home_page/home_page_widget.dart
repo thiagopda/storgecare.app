@@ -109,8 +109,8 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                       decoration: BoxDecoration(
                                         shape: BoxShape.circle,
                                       ),
-                                      child: Image.network(
-                                        currentUserPhoto,
+                                      child: Image.asset(
+                                        'assets/images/profile-pro.jpeg',
                                         fit: BoxFit.cover,
                                       ),
                                     ),
@@ -220,8 +220,10 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                     child: StreamBuilder<List<AppointmentsRecord>>(
                       stream: queryAppointmentsRecord(
                         queryBuilder: (appointmentsRecord) => appointmentsRecord
-                            .where('appointmentPerson',
-                                isEqualTo: currentUserReference)
+                            .where(
+                              'appointmentPerson',
+                              isEqualTo: currentUserReference,
+                            )
                             .orderBy('appointmentTime'),
                         limit: 1,
                       ),
